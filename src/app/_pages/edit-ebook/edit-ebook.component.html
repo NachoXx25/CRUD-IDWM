@@ -3,46 +3,46 @@
     Vover a la lista
   </button>
   <div class="bg-gradient-to-b bg-blue-200 rounded-2xl">
-    <form [formGroup]="newEbookForm" (submit)="newEbookForm.valid  && CreateEbook()" class="p-10">
+    <form [formGroup]="editForm" (submit)="editForm.valid  && updateEbook()" class="p-10">
       <div class="flex flex-col justify-center items-center content-centers mb-4">
-        <h1 class="font-sans text-2xl font-bold">¡Bienvenido!</h1>
-        <h2 class="font-sans text-2xl font-semibold">Crea tu ebook</h2>
+        <h1 class="font-sans text-2xl font-bold">Sistema de edición</h1>
+        <h2 class="font-sans text-2xl font-semibold">¡Edita el ebook!</h2>
       </div>
       <app-text-input
-      [formControl]="$any(newEbookForm.controls['title'])"
+      [formControl]="$any(editForm.controls['title'])"
       label="Título del Ebook"
       placeholder="Ingrese el titulo del Ebook"
       requiredMessage="El titulo es requerido"
       />
       <app-text-input
-      [formControl]="$any(newEbookForm.controls['author'])"
+      [formControl]="$any(editForm.controls['author'])"
       label="Autor del Ebook"
       placeholder="Ingrese el nombre del Autor"
       requiredMessage="El autor ocompleto es requerido"
       />
       <app-text-input
-      [formControl]="$any(newEbookForm.controls['genre'])"
+      [formControl]="$any(editForm.controls['genre'])"
       label="Género del Ebook"
       placeholder="Ingrese el género"
       requiredMessage="El Género es requerido"
       />
       <app-text-input
-      [formControl]="$any(newEbookForm.controls['format'])"
+      [formControl]="$any(editForm.controls['format'])"
       label="Formato del Ebook"
       placeholder="Ingrese el formato (PDF, Fisico)"
       requiredMessage="El formato completo es requerido"
       />
       <app-text-input
-      [formControl]="$any(newEbookForm.controls['price'])"
+      [formControl]="$any(editForm.controls['price'])"
       label="Precio del Ebook"
       placeholder="Ingrese un precio"
       requiredMessage="El precio es requerido"
       />
       <div class=" flex flex-col justify-center items-center content-center mt-6">
-        <button [disabled]="!newEbookForm.valid" type="submit" class="bg-blue-600 hover:bg-blue-800 rounded-xl p-4">
-          ¡Crear Ebook!
+        <button [disabled]="!editForm.valid" type="submit" class="bg-blue-600 hover:bg-blue-800 rounded-xl p-4">
+          ¡Editar Ebook!
         </button>
-        <p style="width: 200px;" class="text-red-700 mt-2 bg-red-50"> {{errorMessage }} </p>
+        <p style="width: 200px;" class="text-red-700 mt-2 bg-red-50"> {{ errorMessage }} </p>
       </div>
     </form>
   </div>

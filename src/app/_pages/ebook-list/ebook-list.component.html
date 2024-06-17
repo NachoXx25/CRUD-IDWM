@@ -1,1 +1,63 @@
-<p>ebook-list works!</p>
+<div  class="h-screen w-screen flex justify-center items-center content-center">
+  <button routerLink = "/create" class="bg-blue-400 hover:bg-blue-800 absolute top-10 right-10 p-4 rounded-lg">
+    New Ebook
+  </button>
+
+<div class="relative overflow-x-auto">
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+              <th scope="col" class="px-6 py-3">
+                  Titulo
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Autor
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Género
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Formato
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Precio
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Editar
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Eliminar
+              </th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" *ngFor="let ebook of ebooks">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  {{ ebook.title }}
+              </th>
+              <td class="px-6 py-4">
+                  {{ ebook.author }}
+              <td class="px-6 py-4">
+                  {{ ebook.genre }}
+              </td>
+              <td class="px-6 py-4">
+                {{ ebook.format }}
+              </td>
+              <td class="px-6 py-4">
+                  {{ ebook.price }}
+              </td>
+              <td class="px-6 py-4">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="editEbook(ebook.id)">
+                  <img src="../../../assets/images/editar-texto.png" class="w-4 h-4">
+                </button>
+              </td>
+              <td class="px-6 py-4">
+                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" (click)="deleteEbook(ebook.id)">
+                  <img src="../../../assets/images/tacho-de-reciclaje.png" class="w-4 h-4">
+                </button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+
