@@ -37,4 +37,7 @@ export class EbookService {
   updateEbook(id: number, ebook: any){
     return this.http.put<Ebook>(`${this.baseUrl}/api/ebook/${id}`, ebook);
   }
+  getEbookById(id: number){
+    return this.http.get<Ebook>(`${this.baseUrl}/api/ebook/${id}`);
+  }
 }

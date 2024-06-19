@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Ebook } from 'src/app/_interfaces/ebook';
 import { EbookService } from 'src/app/_services/ebook.service';
 
 @Component({
@@ -30,6 +31,17 @@ export class EditEbookComponent implements OnInit {
 
   ngOnInit() {
     this.ebookId = parseInt(this.route.snapshot.paramMap.get('id') ?? '');
+    if (this.ebookId) {
+      this.ebookService.getEbookById(this.ebookId).subscribe({
+        next: (ebook) => {
+          this.editForm.patchValue(ebook);
+        },
+        error: (err) => {
+          err = 'Error al cargar el ebook';
+          this.errorMessage = err;
+        }
+      });
+    }
   }
 
   updateEbook() {
